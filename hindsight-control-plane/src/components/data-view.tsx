@@ -715,7 +715,7 @@ function TimelineView({ data, filteredRows }: { data: any; filteredRows: any[] }
   const [currentIndex, setCurrentIndex] = useState(0);
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  // Filter and sort items that have dates (occurred_start for facts, mentioned_at as fallback because occurred_start is not present on experiences and opinions)
+  // Filter and sort items that have dates (occurred_start is only present for events, mentioned_at as fallback - opinions don't tend to be events)
   const { sortedItems, itemsWithoutDates } = useMemo(() => {
     if (!filteredRows || filteredRows.length === 0)
       return { sortedItems: [], itemsWithoutDates: [] };
